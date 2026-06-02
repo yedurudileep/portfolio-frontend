@@ -1,0 +1,180 @@
+.about{
+  padding:100px 0;
+  background:#07111f;
+}
+
+.about-container{
+  width:90%;
+  max-width:1200px;
+
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:4rem;
+}
+
+/* Left Side */
+
+.about-left{
+  flex:0.9;
+
+  display:flex;
+  justify-content:center;
+}
+
+.about-image-card{
+  width:100%;
+  max-width:400px;
+  height:450px;
+
+  border-radius:25px;
+  overflow:hidden;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 0 25px rgba(139,92,246,.20);
+
+  transition:.4s;
+}
+
+.about-image-card:hover{
+  transform:translateY(-8px);
+}
+
+.about-image-card img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:center 10%;
+
+  transition:.4s;
+}
+
+.about-image-card:hover img{
+  transform:scale(1.05);
+}
+
+/* Right Side */
+
+.about-right{
+  flex:1.1;
+}
+
+.section-tag{
+  color:#8b5cf6;
+
+  font-weight:600;
+
+  letter-spacing:2px;
+
+  margin-bottom:1rem;
+}
+
+.about-right h2{
+  font-size:3rem;
+
+  line-height:1.2;
+
+  margin-bottom:1rem;
+}
+
+.about-right p{
+  color:#94a3b8;
+
+  line-height:1.5;
+
+  margin-bottom:1rem;
+}
+
+/* Cards */
+
+.about-info{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:1rem;
+
+  margin-top:2rem;
+}
+
+.info-card{
+  padding:1.2rem;
+
+  border-radius:15px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  transition:.3s;
+}
+
+.info-card:hover{
+  transform:translateY(-5px);
+
+  border-color:#8b5cf6;
+
+  box-shadow:
+    0 0 20px rgba(139,92,246,.15);
+}
+
+.info-card span{
+  color:#8b5cf6;
+
+  font-size:.9rem;
+}
+
+.info-card h4{
+  margin-top:.6rem;
+
+  font-size:1rem;
+
+  word-break:break-word;
+}
+
+/* Tablet */
+
+@media screen and (max-width:992px){
+
+  .about-container{
+    gap:2rem;
+  }
+
+  .about-right h2{
+    font-size:2.4rem;
+  }
+
+  .about-image-card{
+    max-width:350px;
+    height:400px;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width:768px){
+
+  .about-container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .about-image-card{
+    max-width:300px;
+    height:350px;
+  }
+
+  .about-right h2{
+    font-size:2rem;
+  }
+
+  .about-info{
+    grid-template-columns:1fr;
+  }
+}

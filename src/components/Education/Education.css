@@ -1,0 +1,118 @@
+.education {
+  padding: 100px 0;
+  background: #07111f;
+}
+
+.section-tag {
+  text-align: center;
+  color: #00bcd4;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.education-card,
+.achievement-card,
+.certification-card,
+.internship-card {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding: 35px;
+  border-radius: 16px;
+  background: #0c1b2a;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.education-card:hover,
+.achievement-card:hover,
+.certification-card:hover,
+.internship-card:hover {
+  transform: translateY(-5px);
+  border-color: #8b5cf6;
+}
+
+.education-icon,
+.achievement-icon,
+.certification-icon,
+.internship-icon {
+  font-size: 2rem;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.education-card h3,
+.achievement-card h3,
+.certification-card h3,
+.internship-card h3 {
+  margin-bottom: 10px;
+}
+
+.education-card h4,
+.internship-card h4 {
+  margin-bottom: 12px;
+  color: #cbd5e1;
+}
+
+.college-name {
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.education-year,
+.education-cgpa {
+  color: #cbd5e1;
+}
+
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.achievement-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.achievement-list svg {
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+
+  .education {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .education-card,
+  .achievement-card,
+  .certification-card,
+  .internship-card {
+    padding: 25px;
+  }
+
+  .achievement-list li {
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+  }
+}

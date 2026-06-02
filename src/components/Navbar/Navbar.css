@@ -1,0 +1,171 @@
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  z-index:1000;
+
+  backdrop-filter:blur(20px);
+
+  background:rgba(2,6,23,.7);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar-container{
+  width:90%;
+  max-width:1200px;
+
+  margin:auto;
+
+  height:80px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  position:relative;
+}
+
+.logo{
+  font-size:1.8rem;
+  font-weight:700;
+
+  color:#8b5cf6;
+}
+
+.nav-links{
+  display:flex;
+  gap:2rem;
+}
+
+.nav-links a{
+  color:white;
+
+  font-weight:500;
+
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#8b5cf6;
+}
+
+.resume-btn{
+  padding:12px 24px;
+
+  border-radius:50px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #8b5cf6,
+    #3b82f6
+  );
+
+  color:white;
+
+  font-weight:600;
+
+  transition:.3s;
+}
+
+.resume-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+  0 0 20px rgba(139,92,246,.5);
+}
+
+/* Hamburger */
+
+.menu-icon{
+  display:none;
+
+  font-size:1.5rem;
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.mobile-resume{
+  display:none;
+}
+
+/* ======================
+   Mobile Navbar
+====================== */
+
+@media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+    z-index:1001;
+  }
+
+  .desktop-resume{
+    display:none;
+  }
+
+  .nav-links{
+    position:absolute;
+
+    top:100%;
+    left:-100%;
+
+    width:100%;
+
+    background:#07111f;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:1.5rem;
+
+    padding:2rem 0;
+
+    text-align:center;
+
+    transition:.4s;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links.active{
+    left:0;
+  }
+
+  .nav-links li{
+    width:100%;
+
+    text-align:center;
+  }
+
+  .nav-links li a{
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:1.1rem;
+  }
+
+  /* FIX */
+
+  .nav-links .mobile-resume{
+    display:none;
+  }
+
+  .nav-links.active .mobile-resume{
+    display:inline-block;
+
+    margin-top:1rem;
+  }
+}
