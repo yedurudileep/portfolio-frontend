@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
@@ -11,6 +11,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,22 +25,23 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
 
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      setSuccess(response.data.message);
+      setSuccess("Message sent successfully!");
       setError("");
 
       setFormData({
@@ -48,9 +50,9 @@ const Contact = () => {
         subject: "",
         message: "",
       });
-    } catch (error) {
-      setError(error.response?.data?.message || "Something went wrong");
-
+    } catch (err) {
+      console.error(err);
+      setError("Failed to send message");
       setSuccess("");
     } finally {
       setLoading(false);
@@ -65,12 +67,9 @@ const Contact = () => {
         <h2 className="contact-title">Get In Touch</h2>
 
         <div className="contact-container">
-          {/* Left Side */}
-
           <div className="contact-info">
             <div className="info-box">
               <FaEnvelope className="contact-icon" />
-
               <div>
                 <h4>Email</h4>
                 <p>yedurudileep771981@gmail.com</p>
@@ -79,7 +78,6 @@ const Contact = () => {
 
             <div className="info-box">
               <FaPhoneAlt className="contact-icon" />
-
               <div>
                 <h4>Phone</h4>
                 <p>+91 8260396798</p>
@@ -88,15 +86,12 @@ const Contact = () => {
 
             <div className="info-box">
               <FaMapMarkerAlt className="contact-icon" />
-
               <div>
                 <h4>Location</h4>
                 <p>Andhra Pradesh, India</p>
               </div>
             </div>
           </div>
-
-          {/* Right Side */}
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <input
@@ -105,6 +100,7 @@ const Contact = () => {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
+              required
             />
 
             <input
@@ -113,6 +109,7 @@ const Contact = () => {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
 
             <input
@@ -121,6 +118,7 @@ const Contact = () => {
               placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
+              required
             />
 
             <textarea
@@ -129,14 +127,20 @@ const Contact = () => {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
+              required
             ></textarea>
 
             <button type="submit" disabled={loading}>
               {loading ? "Sending..." : "Send Message"}
             </button>
-            {success && <p className="success-message">{success}</p>}
 
-            {error && <p className="error-message">{error}</p>}
+            {success && (
+              <p className="success-message">{success}</p>
+            )}
+
+            {error && (
+              <p className="error-message">{error}</p>
+            )}
           </form>
         </div>
       </div>
