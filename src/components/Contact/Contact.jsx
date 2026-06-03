@@ -24,12 +24,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("API URL =", import.meta.env.VITE_API_URL);
-
-console.log(
-  "Full URL =",
-  `${import.meta.env.VITE_API_URL}/api/contact`
-);
+    
 
     try {
       setLoading(true);
