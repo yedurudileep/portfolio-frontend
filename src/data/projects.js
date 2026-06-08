@@ -15,7 +15,7 @@ const projects = [
 
     image: calculatorImg,
 
-    github: "https://github.com/your-github-link",
+    github: "https://github.com/yedurudileep/scientific-calculator",
     live: "https://your-live-demo-link.com",
   },
 
@@ -28,7 +28,7 @@ const projects = [
 
     image: rpsImg,
 
-    github: "https://github.com/your-github-link",
+    github: "https://github.com/yedurudileep/rock-paper-scissors",
     live: "https://your-live-demo-link.com",
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     tech: "React.js • CSS • JavaScript",
 
     image: todo,
-    github: "https://github.com/your-github-link",
+    github: "https://github.com/yedurudileep/todo-list",
     live: "https://your-live-demo-link.com",
   },
   {
@@ -51,7 +51,7 @@ const projects = [
 
     image: stopwatch,
 
-    github: "https://github.com/your-github-link",
+    github: "https://github.com/yedurudileep/stop-watch",
     live: "https://your-live-demo-link.com",
   },
 ];
